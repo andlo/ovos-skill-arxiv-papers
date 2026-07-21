@@ -1,13 +1,13 @@
 {
-  "skill_id": "ovos-skill-arxiv.andlo",
-  "source": "https://github.com/andlo/ovos-skill-arxiv",
-  "package_name": "ovos-skill-arxiv",
-  "pip_spec": "ovos-skill-arxiv",
+  "skill_id": "ovos-skill-arxiv-papers.andlo",
+  "source": "https://github.com/andlo/ovos-skill-arxiv-papers",
+  "package_name": "ovos-skill-arxiv-papers",
+  "pip_spec": "ovos-skill-arxiv-papers",
   "license": "GPL-3.0-or-later",
   "author": "andlo",
   "name": "arXiv Papers (provider)",
   "description": "Reads arXiv paper abstracts aloud. Provider for ovos-common-reading-pipeline-plugin - no standalone voice interface.",
   "examples": [],
   "tags": ["science", "research", "arxiv", "papers", "provider"],
-  "icon": "https://raw.githubusercontent.com/andlo/ovos-skill-arxiv/main/rss-512.png"
+  "icon": "https://raw.githubusercontent.com/andlo/ovos-skill-arxiv-papers/main/book-512.png"
 }

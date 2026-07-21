@@ -1,4 +1,4 @@
-# <img src='rss-512.png' card_color='#40DBB0' width='50' height='50' style='vertical-align:bottom'/> arXiv Papers (provider)
+# <img src='book-512.png' card_color='#40DBB0' width='50' height='50' style='vertical-align:bottom'/> arXiv Papers (provider)
 
 A *provider* skill for [ovos-common-reading-pipeline-plugin](https://github.com/andlo/ovos-common-reading-pipeline-plugin),
 reading [arXiv](https://arxiv.org/) paper abstracts aloud.
@@ -7,8 +7,8 @@ A second real-world test that common-reading works for more than fairy
 tales - this one introduces a new `content_type` ("paper"), sourced from
 a completely different kind of feed (per-category, updated daily).
 
-[![Tests](https://github.com/andlo/ovos-skill-arxiv/actions/workflows/test.yml/badge.svg)](https://github.com/andlo/ovos-skill-arxiv/actions/workflows/test.yml)
-[![PyPI version](https://img.shields.io/pypi/v/ovos-skill-arxiv.svg)](https://pypi.org/project/ovos-skill-arxiv/)
+[![Tests](https://github.com/andlo/ovos-skill-arxiv-papers/actions/workflows/test.yml/badge.svg)](https://github.com/andlo/ovos-skill-arxiv-papers/actions/workflows/test.yml)
+[![PyPI version](https://img.shields.io/pypi/v/ovos-skill-arxiv-papers.svg)](https://pypi.org/project/ovos-skill-arxiv-papers/)
 
 > **This skill has no standalone voice interface.** It registers no
 > intents and never speaks. It only answers
@@ -18,7 +18,7 @@ a completely different kind of feed (per-category, updated daily).
 
 ## Install
 ```bash
-pip install ovos-skill-arxiv ovos-common-reading-pipeline-plugin
+pip install ovos-skill-arxiv-papers ovos-common-reading-pipeline-plugin
 ```
 
 ## Source

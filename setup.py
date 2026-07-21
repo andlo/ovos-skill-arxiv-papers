@@ -3,9 +3,9 @@ from setuptools import setup
 from os import walk, path
 
 BASEDIR = path.abspath(path.dirname(__file__))
-URL = "https://github.com/andlo/ovos-skill-arxiv"
+URL = "https://github.com/andlo/ovos-skill-arxiv-papers"
 SKILL_CLAZZ = "ArxivPapers"  # needs to match __init__.py class name
-PYPI_NAME = "ovos-skill-arxiv"  # pip install PYPI_NAME
+PYPI_NAME = "ovos-skill-arxiv-papers"  # pip install PYPI_NAME
 
 SKILL_AUTHOR, SKILL_NAME = URL.split(".com/")[-1].split("/")
 SKILL_PKG = SKILL_NAME.lower().replace("-", "_")

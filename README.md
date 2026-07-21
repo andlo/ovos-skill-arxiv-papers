@@ -48,6 +48,14 @@ If no translation plugin is available, this provider does not respond
 to searches at all for a non-English device, rather than silently
 offering English content the user didn't ask for.
 
+**Note for anyone comparing providers:** unlike
+`ovos-skill-andersen-tales`/`ovos-skill-grimm-tales`/
+`ovos-skill-andrew-lang-tales`, which check a fixed `SUPPORTED_LANGUAGES`
+set at load time and refuse to load at all otherwise, this provider
+*always* loads regardless of device language - it can't know in advance
+whether a translation plugin will be available, so it always registers
+its bus events and decides per-search instead (see above).
+
 ## Collection hints
 
 Responds to `collection_hint` values like "arxiv", "the arxiv", and

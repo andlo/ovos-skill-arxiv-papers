@@ -3,7 +3,7 @@ mirrors ovos-skill-ovosblog's test suite (same design, second real-world
 test of the pattern)."""
 from unittest.mock import MagicMock
 
-from conftest import COMMON_READING_SEARCH_RESPONSE, COMMON_READING_FETCH_CONTENT_RESPONSE
+from conftest import COMMON_READING_SEARCH_RESPONSE, COMMON_READING_FETCH_CONTENT_RESPONSE, COMMON_READING_PONG
 
 
 def make_message(data=None):
@@ -101,3 +101,20 @@ def test_non_english_without_translator_stays_silent(skill, monkeypatch):
     skill.handle_search(make_message({"phrase": "bedømmer-tilstandsbias"}))
 
     skill.bus.emit.assert_not_called()
+
+
+def test_handle_ping_replies_with_pong(skill):
+    skill.handle_ping(make_message())
+
+    sent = skill.bus.emit.call_args[0][0]
+    assert sent.msg_type == COMMON_READING_PONG
+    assert sent.data["skill_id"] == skill.skill_id
+    assert sent.data["collection"] == "arXiv"
+
+
+def test_handle_ping_does_not_touch_the_index(skill):
+    skill.index = None
+
+    skill.handle_ping(make_message())
+
+    skill.bus.emit.assert_called_once()

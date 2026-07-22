@@ -62,6 +62,8 @@ COMMON_READING_SEARCH = "ovos.common_reading.search"
 COMMON_READING_SEARCH_RESPONSE = "ovos.common_reading.search.response"
 COMMON_READING_FETCH_CONTENT = "ovos.common_reading.fetch_content"  # + ".{this_skill_id}"
 COMMON_READING_FETCH_CONTENT_RESPONSE = "ovos.common_reading.fetch_content.response"
+COMMON_READING_PING = "ovos.common_reading.ping"
+COMMON_READING_PONG = "ovos.common_reading.pong"
 
 COLLECTION_ALIASES = ["arxiv", "the arxiv", "archive", "the archive"]
 CONTENT_TYPES = ["paper", "abstract", "research", "study"]
@@ -94,6 +96,7 @@ class ArxivPapers(OVOSSkill):
         self.refresh_index()
         self.add_event(COMMON_READING_SEARCH, self.handle_search)
         self.add_event(f"{COMMON_READING_FETCH_CONTENT}.{self.skill_id}", self.handle_fetch_content)
+        self.add_event(COMMON_READING_PING, self.handle_ping)
 
     def _index_cache_filename(self):
         return f"feed_index_{self.category}.json"
@@ -289,3 +292,13 @@ class ArxivPapers(OVOSSkill):
             return
         paragraphs, _ = self._maybe_translate_paragraphs([entry["abstract"]], self.lang)
         self.bus.emit(message.reply(COMMON_READING_FETCH_CONTENT_RESPONSE, {"paragraphs": paragraphs}))
+
+    def handle_ping(self, message):
+        """Cheap 'is anyone there?' reply - no index lookup, no
+        translation. Only ever called by the pipeline plugin on its
+        rare 0-candidates path (see
+        ovos-common-reading-pipeline-plugin#2), never on every search."""
+        self.bus.emit(message.reply(COMMON_READING_PONG, {
+            "skill_id": self.skill_id,
+            "collection": COLLECTION_NAME,
+        }))

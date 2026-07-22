@@ -39,9 +39,15 @@ def skill(tmp_path, monkeypatch):
     s._settings = {}
     monkeypatch.setattr(ArxivPapers, "lang", "en-us", raising=False)
     s.file_system = FakeFileSystem(tmp_path)
+    s.res_dir = str(Path(__file__).resolve().parents[1])  # repo root, holds locale/
+    s._lang_resources = {}  # OVOSSkill.resources' internal per-language cache
     s.category = "cs.AI"
     s.index = {}
     s._translator = None
     s._translator_failed = False
     s._translated_titles_cache = {}
+    # matches locale/en-us/collection.voc - most tests don't exercise
+    # _load_collection_aliases() itself, they just need this
+    # pre-populated the way initialize() would leave it
+    s._collection_aliases = ["arxiv", "the arxiv", "archive", "the archive"]
     return s

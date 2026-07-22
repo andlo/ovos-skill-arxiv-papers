@@ -58,9 +58,17 @@ its bus events and decides per-search instead (see above).
 
 ## Collection hints
 
-Responds to `collection_hint` values like "arxiv", "the arxiv", and
-"archive"/"the archive" (arXiv is commonly pronounced "archive", so
-that's a likely STT transcription).
+Responds to `collection_hint` values in the *device's own language* -
+e.g. "arxiv"/"archive" (arXiv is commonly pronounced "archive", so
+that's a likely STT transcription) on English, "videnskabelige
+artikler" on Danish, "artículos científicos" on Spanish - matched
+fuzzily against that language's own alias list (see
+`locale/<lang>/collection.voc`). Like `ovos-skill-ovosblog`, this
+provider works on *any* device language, so aliases fall back to
+English for any language we haven't bothered translating - see
+[ovos-common-reading-pipeline-plugin#26](https://github.com/andlo/ovos-common-reading-pipeline-plugin/issues/26).
+The collection name itself ("arXiv") stays untranslated - it's a proper
+noun.
 
 ## Content type
 

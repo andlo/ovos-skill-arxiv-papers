@@ -8,8 +8,8 @@
   "name": "arXiv Papers (provider)",
   "description": "Reads arXiv paper abstracts aloud. Provider for ovos-common-reading-pipeline-plugin - no standalone voice interface.",
   "examples": [
-    "Tell me an article from arxiv",
-    "Read me an article from the archive"
+    "Read latest paper from arxiv",
+    "Read an article from arxiv"
   ],
   "tags": [
     "science",

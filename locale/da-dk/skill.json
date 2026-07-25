@@ -8,8 +8,7 @@
   "name": "arXiv Artikler (udbyder)",
   "description": "Læser resuméer af arXiv-artikler højt. Udbyder til ovos-common-reading-pipeline-plugin. Ingen selvstændig stemmegrænseflade.",
   "examples": [
-    "Fortæl mig en historie fra arxiv",
-    "Læs mig et eventyr fra arxiv"
+    "Læs mig seneste artikel fra arxiv"
   ],
   "tags": [
     "science",

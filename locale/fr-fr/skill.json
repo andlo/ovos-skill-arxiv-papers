@@ -7,7 +7,16 @@
   "author": "andlo",
   "name": "Articles arXiv (fournisseur)",
   "description": "Lit à voix haute les résumés d'articles arXiv. Fournisseur pour ovos-common-reading-pipeline-plugin. Pas d'interface vocale autonome.",
-  "examples": [],
-  "tags": ["science", "research", "arxiv", "papers", "provider"],
+  "examples": [
+    "Raconte-moi une histoire de arxiv",
+    "Lis-moi une histoire de arxiv"
+  ],
+  "tags": [
+    "science",
+    "research",
+    "arxiv",
+    "papers",
+    "provider"
+  ],
   "icon": "https://raw.githubusercontent.com/andlo/ovos-skill-arxiv-papers/main/book-512.png"
 }

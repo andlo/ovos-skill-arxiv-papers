@@ -7,7 +7,16 @@
   "author": "andlo",
   "name": "arXiv Artikel (Anbieter)",
   "description": "Liest arXiv-Artikelzusammenfassungen vor. Anbieter für ovos-common-reading-pipeline-plugin. Keine eigenständige Sprachschnittstelle.",
-  "examples": [],
-  "tags": ["science", "research", "arxiv", "papers", "provider"],
+  "examples": [
+    "Erzähl mir eine Geschichte von arxiv",
+    "Lies mir eine Geschichte von arxiv"
+  ],
+  "tags": [
+    "science",
+    "research",
+    "arxiv",
+    "papers",
+    "provider"
+  ],
   "icon": "https://raw.githubusercontent.com/andlo/ovos-skill-arxiv-papers/main/book-512.png"
 }

@@ -7,7 +7,16 @@
   "author": "andlo",
   "name": "arXiv Papers (provider)",
   "description": "Reads arXiv paper abstracts aloud. Provider for ovos-common-reading-pipeline-plugin - no standalone voice interface.",
-  "examples": [],
-  "tags": ["science", "research", "arxiv", "papers", "provider"],
+  "examples": [
+    "Tell me an article from arxiv",
+    "Read me an article from the archive"
+  ],
+  "tags": [
+    "science",
+    "research",
+    "arxiv",
+    "papers",
+    "provider"
+  ],
   "icon": "https://raw.githubusercontent.com/andlo/ovos-skill-arxiv-papers/main/book-512.png"
 }

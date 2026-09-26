@@ -8,6 +8,7 @@ from conftest import COMMON_READING_SEARCH_RESPONSE, COMMON_READING_FETCH_CONTEN
 
 def make_message(data=None):
     m = MagicMock()
+    m.context = {}
     m.data = data or {}
     m.reply = MagicMock(side_effect=lambda mtype, d: MagicMock(msg_type=mtype, data=d))
     return m
@@ -79,6 +80,7 @@ def test_handle_fetch_content_unknown_id_returns_empty(skill):
 def test_non_english_matches_against_translated_titles(skill, monkeypatch):
     from conftest import ArxivPapers
     monkeypatch.setattr(ArxivPapers, "lang", "da-dk", raising=False)
+    monkeypatch.setattr(ArxivPapers, "native_langs", ["da-dk"], raising=False)
     skill.index = _sample_index()
     fake_translator = MagicMock()
     translations = {"Rater State Bias": "Bedømmer-tilstandsbias", "New Optimizer": "Ny optimering"}
@@ -95,6 +97,7 @@ def test_non_english_matches_against_translated_titles(skill, monkeypatch):
 def test_non_english_without_translator_stays_silent(skill, monkeypatch):
     from conftest import ArxivPapers
     monkeypatch.setattr(ArxivPapers, "lang", "da-dk", raising=False)
+    monkeypatch.setattr(ArxivPapers, "native_langs", ["da-dk"], raising=False)
     skill.index = _sample_index()
     skill._get_translator = MagicMock(return_value=None)
 

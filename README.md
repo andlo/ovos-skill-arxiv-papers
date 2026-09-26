@@ -37,6 +37,14 @@ abstract text; this provider strips that off before offering the text.
 
 ## Translation
 
+**Only in configured languages.** It translates only into the languages
+this installation is configured for: the device's own `lang` plus
+`secondary_langs` in `mycroft.conf`. A search or ping in any other
+language gets no answer, so a request in a language nobody here speaks
+never loads a translation model or translates the title catalogue. A
+HiveMind hub serving users in several languages lists them in
+`secondary_langs`.
+
 Like `ovos-skill-ovosblog`, this machine-translates titles (for matching
 and search responses) and abstracts (when reading them aloud) for
 non-English devices, using whatever

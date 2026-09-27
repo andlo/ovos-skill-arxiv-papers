@@ -48,7 +48,7 @@ def test_fetch_feed_index_parses_items_and_strips_abstract_prefix(skill, monkeyp
 def test_fetch_feed_index_uses_configured_category(skill, monkeypatch):
     requested_urls = []
 
-    def fake_get(url, timeout):
+    def fake_get(url, timeout, headers=None):
         requested_urls.append(url)
         return MagicMock(content=SAMPLE_FEED.encode("utf-8"), raise_for_status=MagicMock())
 

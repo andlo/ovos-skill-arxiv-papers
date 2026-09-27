@@ -49,6 +49,21 @@ import re
 import time
 import json
 
+
+def _user_agent():
+    """Say who is asking. Some sites answer python-requests' default
+    User-Agent with 403 (365tomorrows.com behind Cloudflare does), and a
+    descriptive one is what sites ask automated clients to send."""
+    try:
+        from importlib.metadata import version
+        ver = version("ovos-skill-arxiv-papers")
+    except Exception:
+        ver = "unknown"
+    return f"ovos-skill-arxiv-papers/{ver} (+https://github.com/andlo/ovos-skill-arxiv-papers)"
+
+
+HTTP_HEADERS = {"User-Agent": _user_agent()}
+
 FEED_URL_TEMPLATE = "https://rss.arxiv.org/rss/{category}"
 DEFAULT_CATEGORY = "cs.AI"
 DC_CREATOR_TAG = "{http://purl.org/dc/elements/1.1/}creator"
@@ -170,7 +185,7 @@ class ArxivPapers(OVOSSkill):
     def fetch_feed_index(self):
         url = FEED_URL_TEMPLATE.format(category=self.category)
         try:
-            r = requests.get(url, timeout=10)
+            r = requests.get(url, timeout=10, headers=HTTP_HEADERS)
             r.raise_for_status()
         except requests.RequestException as e:
             raise FeedFetchError(f"failed to fetch {url}: {e}") from e
